@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import { Mother } from '../models/Mother';
 import { MothersRepository } from '../repositories/MothersRepository';
 
 const routes = Router();
