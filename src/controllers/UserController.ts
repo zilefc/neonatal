@@ -10,6 +10,12 @@ class UserController {
 
 	async create(request: Request, response: Response): Promise<Response> {
 		const { name, email, password } = request.body;
+
+		const userAlreadyExists = await this.usersRepository.findByEmail(email);
+		if (userAlreadyExists) {
+			throw new Error('User already exists');
+		}
+
 		await this.usersRepository.create({ name, email, password });
 		return response.status(201).send();
 	}

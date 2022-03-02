@@ -17,6 +17,12 @@ class UsersRepository {
 
 		this.repository.save(user);
 	}
+
+	async findByEmail(email: string): Promise<User> {
+		const user = await this.repository.findOne({ email });
+		console.log(user);
+		return user;
+	}
 }
 
 export { UsersRepository };
