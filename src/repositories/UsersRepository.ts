@@ -1,3 +1,4 @@
+import { getRepository, Repository } from 'typeorm';
 import User from '../models/User';
 
 interface IUserDTO {
@@ -6,15 +7,15 @@ interface IUserDTO {
 	password: string;
 }
 class UsersRepository {
-	private users: User[];
+	private repository: Repository<User>;
 	constructor() {
-		this.users = [];
+		this.repository = getRepository(User);
 	}
 
-	create({ name, email, password }: IUserDTO) {
-		const user = new User();
-		Object.assign(user, { name, email, password });
-		this.users.push(user);
+	async create({ name, email, password }: IUserDTO): Promise<void> {
+		const user = this.repository.create({ name, email, password });
+
+		this.repository.save(user);
 	}
 }
 

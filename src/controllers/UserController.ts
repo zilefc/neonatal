@@ -3,16 +3,19 @@ import { UsersRepository } from '../repositories/UsersRepository';
 
 class UserController {
 	private usersRepository: UsersRepository;
-	
+
 	constructor() {
 		this.usersRepository = new UsersRepository();
 	}
 
-	create(request: Request, response: Response): Response {
+	async create(request: Request, response: Response): Promise<Response> {
 		const { name, email, password } = request.body;
-		this.usersRepository.create({ name, email, password });
+		await this.usersRepository.create({ name, email, password });
 		return response.status(201).send();
 	}
 }
 
-export { UserController };
+export default () => {
+	const userController = new UserController();
+	return userController;
+};
