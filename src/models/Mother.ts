@@ -1,35 +1,78 @@
+import {
+	Column,
+	CreateDateColumn,
+	Entity,
+	ManyToOne,
+	PrimaryGeneratedColumn,
+	UpdateDateColumn
+} from 'typeorm';
 import { v4 as uuid } from 'uuid';
+import User from './User';
 
+@Entity('mothers')
 class Mother {
-	id?: string;
+	@PrimaryGeneratedColumn()
+	id: string;
+
+	@Column()
 	bi: string;
+
+	@Column()
 	name: string;
+
+	@Column()
 	father: string;
+
+	@Column()
 	mother: string;
+
+	@Column()
 	birthday: Date;
+
+	@Column()
 	maritalStatus: string;
+
+	@Column()
 	work: string;
+
+	@Column()
 	workplace: string;
+
+	@Column()
 	home: string;
+
+	@Column()
 	district: string;
+
+	@Column()
 	neighborhood: string;
+
+	@Column()
 	avenue: string;
+
+	@Column()
 	phone: number;
+
+	@Column()
 	referencePlace: string;
+
+	@Column()
 	referencePerson: string;
+
+	@Column()
 	referenceRelation: string;
+
+	@Column()
 	referencePhone: number;
-	created_at?: Date;
-	updated_at?: Date;
 
-	constructor() {
-		if (!this.id) {
-			this.id = uuid();
-			this.created_at = new Date();
-		}
+	@ManyToOne(() => User)
+	register: User;
 
-		this.updated_at = new Date();
-	}
+	@CreateDateColumn({ name: 'created_at' })
+	createdAt: Date;
+
+	@UpdateDateColumn({ name: 'updated_at' })
+	updatedAt: Date;
 }
 
 export { Mother };
