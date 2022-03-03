@@ -38,6 +38,11 @@ class MotherController {
 			throw new Error('Invalid birthday');
 		}
 
+		const motherExists = await this.mothersRepository.findByBi(bi);
+		if (motherExists) {
+			throw new Error('Mother already exists!');
+		}
+
 		await this.mothersRepository.create({
 			register,
 			bi,
@@ -60,6 +65,11 @@ class MotherController {
 		});
 
 		return response.status(201).send();
+	}
+
+	async list(request: Request, response: Response): Promise<Response> {
+		const mothers = await this.mothersRepository.findAll();
+		return response.json(mothers);
 	}
 }
 

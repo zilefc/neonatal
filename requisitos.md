@@ -1,7 +1,7 @@
-[] Cadastrar usuarios
+[x] Cadastrar usuarios
 	- nome, email, password
-[] Autenticar usuarios
-[] Registar maes
+[x] Autenticar usuarios
+[x] Registar maes
 [] Registar filhos
 [] Listar Maes
 [] Listar filhos por mae

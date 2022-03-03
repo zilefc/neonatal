@@ -76,6 +76,17 @@ class MothersRepository {
 
 		await this.repository.save(newMother);
 	}
+
+	async findByBi(bi: string): Promise<Mother> {
+		const mother = this.repository.findOne({ bi });
+
+		return mother;
+	}
+
+	async findAll(): Promise<Mother[]> {
+		const mothers = this.repository.find();
+		return mothers;
+	}
 }
 
 export { MothersRepository };
