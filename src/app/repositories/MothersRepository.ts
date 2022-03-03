@@ -83,6 +83,11 @@ class MothersRepository {
 		return mother;
 	}
 
+	async findById(id: number): Promise<Mother> {
+		const mother = await this.repository.findOne(id);
+		return mother;
+	}
+
 	async findAll(): Promise<Mother[]> {
 		const mothers = this.repository.find();
 		return mothers;

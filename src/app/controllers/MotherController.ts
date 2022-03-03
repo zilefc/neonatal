@@ -71,6 +71,12 @@ class MotherController {
 		const mothers = await this.mothersRepository.findAll();
 		return response.json(mothers);
 	}
+
+	async showById(request: Request, response: Response): Promise<Response> {
+		const { id } = request.params;
+		const mother = await this.mothersRepository.findById(Number(id));
+		return response.json(mother);
+	}
 }
 
 export default () => {
