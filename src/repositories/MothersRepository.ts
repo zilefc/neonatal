@@ -1,4 +1,6 @@
+import { getRepository, Repository } from 'typeorm';
 import { Mother } from '../models/Mother';
+import User from '../models/User';
 
 interface IMotherDTO {
 	bi: string;
@@ -18,16 +20,17 @@ interface IMotherDTO {
 	referencePerson: string;
 	referenceRelation: string;
 	referencePhone: number;
+	register: number;
 }
 
 class MothersRepository {
-	private mothers: Mother[];
+	private repository: Repository<Mother>;
 
 	constructor() {
-		this.mothers = [];
+		this.repository = getRepository(Mother);
 	}
 
-	create({
+	async create({
 		bi,
 		name,
 		father,
@@ -44,11 +47,13 @@ class MothersRepository {
 		referencePlace,
 		referencePerson,
 		referenceRelation,
-		referencePhone
+		referencePhone,
+		register
 	}: IMotherDTO) {
-		const newMother = new Mother();
+		const user = new User();
+		user.id = register;
 
-		Object.assign(newMother, {
+		const newMother = this.repository.create({
 			bi,
 			name,
 			father,
@@ -65,10 +70,11 @@ class MothersRepository {
 			referencePlace,
 			referencePerson,
 			referenceRelation,
-			referencePhone
+			referencePhone,
+			register: user
 		});
-		
-		this.mothers.push(newMother);
+
+		await this.repository.save(newMother);
 	}
 }
 

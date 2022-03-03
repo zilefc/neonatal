@@ -1,52 +1,10 @@
 import { Router } from 'express';
-import { MothersRepository } from '../repositories/MothersRepository';
+import motherController from '../controllers/MotherController';
 
 const routes = Router();
 
-const mothersRepository = new MothersRepository();
-
-routes.post('/', (request, response) => {
-	const {
-		bi,
-		name,
-		father,
-		mother,
-		birthday,
-		maritalStatus,
-		work,
-		workplace,
-		home,
-		district,
-		neighborhood,
-		avenue,
-		phone,
-		referencePlace,
-		referencePerson,
-		referenceRelation,
-		referencePhone
-	} = request.body;
-
-	mothersRepository.create({
-		bi,
-		name,
-		father,
-		mother,
-		birthday,
-		maritalStatus,
-		work,
-		workplace,
-		home,
-		district,
-		neighborhood,
-		avenue,
-		phone,
-		referencePlace,
-		referencePerson,
-		referenceRelation,
-		referencePhone
-	});
-
-	return response.status(201).send();
+routes.post('/', async (request, response) => {
+	await motherController().create(request, response);
 });
 
 export { routes as mothersRoutes };

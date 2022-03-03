@@ -11,7 +11,7 @@ import bcrypt from 'bcrypt';
 @Entity('users')
 class User {
 	@PrimaryGeneratedColumn()
-	id: string;
+	id: number;
 
 	@Column()
 	name: string;

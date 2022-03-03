@@ -2,6 +2,7 @@ import {
 	Column,
 	CreateDateColumn,
 	Entity,
+	JoinColumn,
 	ManyToOne,
 	PrimaryGeneratedColumn,
 	UpdateDateColumn
@@ -12,7 +13,7 @@ import User from './User';
 @Entity('mothers')
 class Mother {
 	@PrimaryGeneratedColumn()
-	id: string;
+	id: number;
 
 	@Column()
 	bi: string;
@@ -66,6 +67,10 @@ class Mother {
 	referencePhone: number;
 
 	@ManyToOne(() => User)
+	@JoinColumn({
+		name: 'register_id',
+		referencedColumnName: 'id'
+	})
 	register: User;
 
 	@CreateDateColumn({ name: 'created_at' })

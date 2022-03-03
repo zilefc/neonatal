@@ -15,7 +15,7 @@ class UsersRepository {
 	async create({ name, email, password }: IUserDTO): Promise<void> {
 		const user = this.repository.create({ name, email, password });
 
-		this.repository.save(user);
+		await this.repository.save(user);
 	}
 
 	async findByEmail(email: string): Promise<User> {
