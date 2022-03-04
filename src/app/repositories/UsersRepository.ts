@@ -22,6 +22,13 @@ class UsersRepository {
 		const user = await this.repository.findOne({ email });
 		return user;
 	}
+
+	async findById(id: number): Promise<User> {
+		const user = await this.repository.findOne(id, {
+			select: ['id', 'name', 'email', 'created_at', 'updated_at']
+		});
+		return user;
+	}
 }
 
 export { UsersRepository };

@@ -41,14 +41,14 @@ class Children {
 		name: 'mother_id',
 		referencedColumnName: 'id'
 	})
-	mother: number;
+	mother: Mother;
 
 	@ManyToOne(() => User)
 	@JoinColumn({
 		name: 'register_id',
 		referencedColumnName: 'id'
 	})
-	register: number;
+	register: User;
 
 	@CreateDateColumn()
 	created_at: Date;
