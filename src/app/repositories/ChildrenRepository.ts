@@ -33,7 +33,7 @@ class ChildrenRepository {
 		mother,
 		register
 	}: IChildrenDTO): Promise<void> {
-		const children = this.repository.create({
+		const child = this.repository.create({
 			name,
 			hospitalName,
 			hospitalNumber,
@@ -45,7 +45,12 @@ class ChildrenRepository {
 			register
 		});
 
-		await this.repository.save(children);
+		await this.repository.save(child);
+	}
+
+	async findAll(): Promise<Children[]> {
+		const children = await this.repository.find();
+		return children;
 	}
 }
 

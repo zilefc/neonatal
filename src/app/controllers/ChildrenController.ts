@@ -41,6 +41,11 @@ class ChildrenController {
 
 		return response.status(201).send();
 	}
+
+	async list(request: Request, response: Response): Promise<Response> {
+		const children = await this.childrenRepository.findAll();
+		return response.json(children);
+	}
 }
 
 export default () => {
