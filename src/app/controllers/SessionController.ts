@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { UsersRepository } from '../repositories/UsersRepository';
-import authConfig from '../config/auth';
+import authConfig from '../../config/auth';
 
 class SessionController {
 	private repository: UsersRepository;
