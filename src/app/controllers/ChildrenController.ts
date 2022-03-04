@@ -46,6 +46,13 @@ class ChildrenController {
 		const children = await this.childrenRepository.findAll();
 		return response.json(children);
 	}
+
+	async showById(request: Request, response: Response): Promise<Response> {
+		const { id } = request.params;
+
+		const child = await this.childrenRepository.findById(Number(id));
+		return response.json(child);
+	}
 }
 
 export default () => {

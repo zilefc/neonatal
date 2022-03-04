@@ -52,6 +52,11 @@ class ChildrenRepository {
 		const children = await this.repository.find();
 		return children;
 	}
+
+	async findById(id: number): Promise<Children> {
+		const child = await this.repository.findOne(id);
+		return child;
+	}
 }
 
 export { ChildrenRepository };

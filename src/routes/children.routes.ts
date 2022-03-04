@@ -11,4 +11,8 @@ routes.get('/', async (request, response) => {
 	await childrenController().list(request, response);
 });
 
+routes.get('/:id', async (request, response) => {
+	await childrenController().showById(request, response);
+});
+
 export { routes as childrenRoutes };
