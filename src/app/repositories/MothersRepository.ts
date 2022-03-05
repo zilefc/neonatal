@@ -1,4 +1,5 @@
 import { getRepository, Repository } from 'typeorm';
+import { Children } from '../models/Children';
 import { Mother } from '../models/Mother';
 import User from '../models/User';
 
@@ -89,8 +90,17 @@ class MothersRepository {
 	}
 
 	async findAll(): Promise<Mother[]> {
-		const mothers = this.repository.find();
+		const mothers = await this.repository.find();
 		return mothers;
+	}
+
+	async findChildren(id: number): Promise<Children[]> {
+		const mother = await this.repository.findOne(id, {
+			relations: ['children']
+		});
+
+		const { children } = mother;
+		return children;
 	}
 }
 

@@ -4,10 +4,12 @@ import {
 	Entity,
 	JoinColumn,
 	ManyToOne,
+	OneToMany,
 	PrimaryGeneratedColumn,
 	UpdateDateColumn
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
+import { Children } from './Children';
 import User from './User';
 
 @Entity('mothers')
@@ -72,6 +74,9 @@ class Mother {
 		referencedColumnName: 'id'
 	})
 	register: User;
+
+	@OneToMany(() => Children, (child) => child.mother)
+	children: Children[];
 
 	@CreateDateColumn({ name: 'created_at' })
 	createdAt: Date;
