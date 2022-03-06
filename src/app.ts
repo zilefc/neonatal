@@ -5,12 +5,12 @@ import './database';
 import routes from './routes';
 
 const app = express();
-
+app.use('/views', express.static(resolve(__dirname, 'app', 'views')));
 app.set('view engine', 'ejs');
 app.set('views', resolve(__dirname, 'app', 'views'));
 
 app.get('/', (request, response) => {
-	return response.render('pages');
+	return response.render('pages/home');
 });
 
 app.use(express.json());

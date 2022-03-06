@@ -1,9 +1,11 @@
 import { Router } from 'express';
 import motherController from '../app/controllers/MotherController';
 import motherChildrenController from '../app/controllers/MotherChildrenController';
+import authMiddleware from '../middlewares/auth';
 
 const routes = Router();
 
+routes.use(authMiddleware);
 routes.post('/', async (request, response) => {
 	await motherController().create(request, response);
 });

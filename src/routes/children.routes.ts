@@ -1,8 +1,10 @@
 import { Router } from 'express';
 import childrenController from '../app/controllers/ChildrenController';
+import authMiddleware from '../middlewares/auth';
 
 const routes = Router();
 
+routes.use(authMiddleware);
 routes.post('/', async (request, response) => {
 	await childrenController().create(request, response);
 });
