@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { childrenRoutes } from './children.routes';
 import { mothersRoutes } from './mothers.routes';
+import { pageRoutes } from './pages.routes';
 import { sessionRoutes } from './sessions.routes';
 import { usersRoutes } from './users.routes';
 
@@ -10,5 +11,6 @@ routes.use('/sessions', sessionRoutes);
 routes.use('/users', usersRoutes);
 routes.use('/mothers', mothersRoutes);
 routes.use('/children', childrenRoutes);
+routes.use(pageRoutes);
 
 export default routes;

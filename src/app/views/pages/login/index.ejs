@@ -1,12 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-</head>
-<body>
-	
-</body>
+	<head>
+		<%- include('../../partials/head') %>
+		<link rel="stylesheet" href="/views/pages/login/style.css" />
+	</head>
+	<body>
+		<main>
+			<header>
+				<strong>R-NEONATAL</strong>
+			</header>
+			<form action="" onsubmit="Form.submit(event)">
+				<h1>Faça o seu login</h1>
+				<div class="input-block">
+					<label class="sr-only" for="user-email">E-mail</label>
+					<input
+						type="email"
+						name="user-email"
+						id="user-email"
+						placeholder="Seu e-mail"
+						required
+					/>
+				</div>
+
+				<div class="input-block">
+					<label class="sr-only" for="user-password">Senha</label>
+					<input
+						type="password"
+						name="user-password"
+						id="user-password"
+						placeholder="Sua senha"
+						required
+					/>
+				</div>
+
+				<button type="submit">Entrar</button>
+				<!--
+				<a href=""> <img src="" alt="icon" /><span>Esqueci a senha</span></a>
+				-->
+			</form>
+		</main>
+
+		<script src="/views/pages/login/script.js"></script>
+	</body>
 </html>
