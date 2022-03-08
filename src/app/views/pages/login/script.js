@@ -19,9 +19,10 @@ const Form = {
 		const { email, password } = this.getValues();
 		Request.postData({ email, password }, '/sessions')
 			.then((data) => {
-				Storage.setUserData(data);
-				const { token } = data;
-				Request.getPage(token, '/');
+				console.log(data);
+				//Storage.setUserData(data);
+
+				Request.getPage('/');
 			})
 			.catch((error) => {
 				console.log(error);
@@ -45,19 +46,18 @@ const Request = {
 		return response.json();
 	},
 
-	async getPage(token, route) {
+	async getPage(route) {
 		const url = `http://localhost:3333${route}`;
 		const params = {
 			headers: {
-				'Content-Type': 'application/json',
-				authorization: `Bearer ${token}`
+				'Content-Type': 'application/json'
 			},
 			method: 'GET',
 			redirect: 'follow'
 		};
 
-		fetch(url, params)
-			.then((result) => result.json())
-			.then((data) => window.location.assign(`http://localhost:3333${route}`));
+		fetch(url, params).then((result) =>
+			window.location.assign(`http://localhost:3333${route}`)
+		);
 	}
 };
