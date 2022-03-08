@@ -1,0 +1,16 @@
+.link {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--color-green);
+	height: 4rem;
+	margin-right: 2.4rem;
+	padding: 0.8rem 2.4rem;
+	text-decoration: none;
+	color: var(--color-white);
+	border-radius: 0.4rem;
+}
+
+.link:hover {
+	background: var(--color-dark-green);
+}

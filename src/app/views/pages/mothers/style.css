@@ -1,0 +1,44 @@
+main {
+	margin: 6.4rem auto;
+	width: calc(min(600px, 98%));
+	color: var(--color-text-title);
+}
+
+main header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+main ul {
+	list-style: none;
+	margin-top: 3.2rem;
+}
+
+main li {
+	background: var(--color-white);
+	border-radius: 0.8rem;
+	border: 2px solid var(--color-white);
+}
+
+main li + li {
+	margin-top: 2.4rem;
+}
+
+main li a {
+	display: block;
+	padding: 2.4rem;
+	text-decoration: none;
+	color: var(--color-text-title);
+}
+
+main li a div {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 0.8rem;
+}
+
+main li:hover {
+	border: 2px solid var(--color-box-line);
+}

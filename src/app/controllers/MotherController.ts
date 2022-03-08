@@ -68,9 +68,22 @@ class MotherController {
 	}
 
 	async list(request: Request, response: Response): Promise<void> {
-		const mothers = await this.mothersRepository.findAll();
+		const mothersList = await this.mothersRepository.findAll();
+
+		const mothers = mothersList.map((mother) => {
+			const birthDate = mother.birthday.toLocaleString('pt-mz', {
+				day: '2-digit',
+				month: 'long',
+				year: 'numeric'
+			});
+			return {
+				...mother,
+				birthDate
+			};
+		});
+
 		return response.render('pages/mothers', {
-			title: 'Login',
+			title: 'Mães',
 			mothers
 		});
 	}

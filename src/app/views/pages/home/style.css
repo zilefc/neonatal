@@ -42,12 +42,3 @@ a .card-number {
 main a + a {
 	margin-left: 4.8rem;
 }
-
-footer {
-	text-align: center;
-	margin-top: 2.4rem;
-	padding: 1.6rem;
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-}

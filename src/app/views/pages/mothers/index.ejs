@@ -8,6 +8,8 @@
 			href="/views/pages/mothers/style.css"
 		/>
 		<link rel="stylesheet" href="/views/styles/header.css" />
+		<link rel="stylesheet" href="/views/styles/footer.css" />
+		<link rel="stylesheet" href="/views/styles/link.css" />
 	</head>
 	<body>
 		<%- include('../../partials/header') %>
@@ -15,10 +17,25 @@
 		<main>
 			<header>
 				<h1>Mães cadastradas</h1>
-				<a href="">Cadastrar nova</a>
+				<%- include('../../partials/link', { title: 'Cadastrar nova', url: '#'
+				}) %>
 			</header>
 
-			<ul></ul>
+			<ul>
+				<% mothers.forEach(mother => { %>
+				<li>
+					<a href="">
+						<div class="mother-name">
+							<strong> <%= mother.name %> </strong>
+							<small> <%= mother.birthDate %> </small>
+						</div>
+						<p><%= `${mother.home}, ${mother.district} • ${mother.phone}` %></p>
+					</a>
+				</li>
+				<% }); %>
+			</ul>
 		</main>
+
+		<%- include('../../partials/footer') %>
 	</body>
 </html>
