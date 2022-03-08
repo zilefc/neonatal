@@ -1,0 +1,48 @@
+header.page-header {
+	background: var(--color-dark-green);
+	padding: 2.4rem calc(min(16rem, 8%));
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: var(--color-white);
+}
+
+header.page-header div {
+	display: flex;
+	align-items: center;
+}
+
+header.page-header div span {
+	margin-left: 4.8rem;
+	font-size: 1.2rem;
+}
+
+header.page-header nav {
+	display: flex;
+	align-items: center;
+}
+
+header.page-header nav a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+header.page-header nav .button-register {
+	background: var(--color-green);
+	height: 4rem;
+	margin-right: 2.4rem;
+	padding: 0 4.8rem;
+	text-decoration: none;
+	color: var(--color-white);
+	border-radius: 0.4rem;
+}
+
+header.page-header nav .button-register:hover {
+	background: none;
+	border: 1px solid var(--color-white);
+}
+
+header.page-header nav img {
+	height: 4rem;
+}

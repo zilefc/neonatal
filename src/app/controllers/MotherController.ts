@@ -67,9 +67,12 @@ class MotherController {
 		return response.status(201).send();
 	}
 
-	async list(request: Request, response: Response): Promise<Response> {
+	async list(request: Request, response: Response): Promise<void> {
 		const mothers = await this.mothersRepository.findAll();
-		return response.json(mothers);
+		return response.render('pages/mothers', {
+			title: 'Login',
+			mothers
+		});
 	}
 
 	async showById(request: Request, response: Response): Promise<Response> {

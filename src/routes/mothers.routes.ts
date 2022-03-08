@@ -5,13 +5,13 @@ import authMiddleware from '../middlewares/auth';
 
 const routes = Router();
 
+routes.get('/', async (request, response) => {
+	await motherController().list(request, response);
+});
+
 routes.use(authMiddleware);
 routes.post('/', async (request, response) => {
 	await motherController().create(request, response);
-});
-
-routes.get('/', async (request, response) => {
-	await motherController().list(request, response);
 });
 
 routes.get('/:id', async (request, response) => {
