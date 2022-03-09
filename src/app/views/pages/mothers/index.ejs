@@ -24,10 +24,10 @@
 			<ul>
 				<% mothers.forEach(mother => { %>
 				<li>
-					<a href="">
+					<a href= <%= `http://localhost:3333/mothers/${mother.id}` %> >
 						<div class="mother-name">
 							<strong> <%= mother.name %> </strong>
-							<small> <%= mother.birthDate %> </small>
+							<small> <%= mother.parsedBirthday %> </small>
 						</div>
 						<p><%= `${mother.home}, ${mother.district} • ${mother.phone}` %></p>
 					</a>

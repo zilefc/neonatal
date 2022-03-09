@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<%- include('../../partials/head') %>
+		<link rel="stylesheet" href="/views/styles/header.css" />
+		<link rel="stylesheet" href="/views/styles/footer.css" />
+		<link rel="stylesheet" href="/views/pages/mother-details/style.css" />
+	</head>
+	<body>
+		<%- include('../../partials/header') %>
+
+		<main>
+			<header>
+				<h1>Detalhes de Mãe</h1>
+			</header>
+
+			<div class="details-container">
+				<section class="mother-details">
+					<div class="mother-name card-detail">
+						<h3>Nome</h3>
+						<span> <%= mother.name %> </span>
+					</div>
+
+					<div class="mother-birthday card-detail">
+						<h3>Data de nascimento</h3>
+						<span> <%= mother.parsedBirthday %> </span>
+					</div>
+
+					<div class="mother-marital card-detail">
+						<h3>Estado civil</h3>
+						<span> <%= mother.maritalStatus %> </span>
+					</div>
+
+					<div class="mother-work card-detail">
+						<h3>Profissão</h3>
+						<span> <%= mother.work %> </span>
+					</div>
+
+					<div class="mother-workplace card-detail">
+						<h3>Local de trabalho</h3>
+						<span> <%= mother.workplace %> </span>
+					</div>
+
+					<div class="mother-home card-detail">
+						<h3>Residência</h3>
+						<span> <%= mother.home %> </span>
+					</div>
+
+					<div class="mother-district card-detail">
+						<h3>Distrito</h3>
+						<span> <%= mother.district %> </span>
+					</div>
+
+					<div class="mother-hood card-detail">
+						<h3>bairro</h3>
+						<span> <%= mother.neighborhood %> </span>
+					</div>
+
+					<div class="mother-avenue card-detail">
+						<h3>Av. / Rua</h3>
+						<span> <%= `${mother.avenue}` %> </span>
+					</div>
+
+					<div class="mother-phone card-detail">
+						<h3>Telefone de contacto</h3>
+						<span> <%= mother.phone %> </span>
+					</div>
+				</section>
+
+				<section class="mother-aditional-info">
+					<div class="mother-father card-detail">
+						<h3>Nome do pai</h3>
+						<span> <%= mother.father %> </span>
+					</div>
+
+					<div class="mother-mother card-detail">
+						<h3>Nome da mãe</h3>
+						<span> <%= mother.mother %> </span>
+					</div>
+
+					<div class="mother-reference-person card-detail">
+						<h3>Pessoa de referência</h3>
+						<span> <%= mother.referencePerson %> </span>
+					</div>
+
+					<div class="mother-reference-phone card-detail">
+						<h3>Contacto de referência</h3>
+						<span> <%= mother.referencePhone %> </span>
+					</div>
+				</section>
+			</div>
+		</main>
+
+		<%- include('../../partials/footer') %>
+	</body>
+</html>

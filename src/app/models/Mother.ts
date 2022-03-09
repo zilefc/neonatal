@@ -1,4 +1,5 @@
 import {
+	AfterLoad,
 	Column,
 	CreateDateColumn,
 	Entity,
@@ -31,6 +32,8 @@ class Mother {
 
 	@Column()
 	birthday: Date;
+
+	parsedBirthday: string;
 
 	@Column()
 	maritalStatus: string;
@@ -83,6 +86,15 @@ class Mother {
 
 	@UpdateDateColumn({ name: 'updated_at' })
 	updatedAt: Date;
+
+	@AfterLoad()
+	parseDate() {
+		this.parsedBirthday = this.birthday.toLocaleString('pt-mz', {
+			day: '2-digit',
+			month: 'long',
+			year: 'numeric'
+		});
+	}
 }
 
 export { Mother };
