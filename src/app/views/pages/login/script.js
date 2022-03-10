@@ -20,7 +20,7 @@ const Form = {
 		Request.postData({ email, password }, '/sessions')
 			.then((data) => {
 				console.log(data);
-				//Storage.setUserData(data);
+				Storage.setUserData(data);
 
 				Request.getPage('/');
 			})

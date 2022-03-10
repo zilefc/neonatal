@@ -17,8 +17,8 @@
 		<main>
 			<header>
 				<h1>Mães cadastradas</h1>
-				<%- include('../../partials/link', { title: 'Cadastrar nova', url: '#'
-				}) %>
+
+				<a class="link" href="#" onclick="Modal.open()"> Cadastrar nova </a>
 			</header>
 
 			<ul>
@@ -36,6 +36,245 @@
 			</ul>
 		</main>
 
+		<div class="modal-overlay">
+      <div class="modal">
+        <section id="form">
+          <h2>Nova Mãe</h2>
+          <form action="" onsubmit="Form.submit(event)">
+
+						<fieldset>
+							<legend>Informacao basica</legend>
+
+							<div class="input-group">
+								<label for="name" class="sr-only">Nome</label>
+								<input
+									type="text"
+									id="name"
+									name="name"
+									placeholder="Nome completo"
+								/>
+							</div>
+
+							<div class="input-group">
+								<label for="bi" class="sr-only">BI</label>
+								<input
+									type="text"
+									id="bi"
+									name="bi"
+									placeholder="Numero de BI"
+								/>
+							</div>
+
+							<div class="input-group">
+								<label for="phone" class="sr-only">Numero de telefone</label>
+								<input
+									type="tel"
+									id="phone"
+									name="phone"
+									placeholder="Numero de telefone"
+								/>
+							</div>
+
+							<section>
+
+								<div class="input-group">
+									<label for="birthday" class="">Data de nascimento</label>
+									<input
+										type="date"
+										id="birthday"
+										name="birthday"
+									/>
+								</div>
+
+								<div class="input-group">
+									<label for="marital" class="">Estado civil</label>
+									<select name="marital" id="marital">
+										<option value="Solteira">Solteira</option>
+										<option value="Casada">Casada</option>
+										<option value="Viúva">Viúva</option>
+										<option value="Divorciada">Divorciada</option>
+									</select>
+								</div>
+
+							</section>
+
+
+						</fieldset>
+
+						<fieldset>
+							<legend>Filiação</legend>
+
+							<section>
+								<div class="input-group">
+									<label for="father-name" class="sr-only">Nome do pai</label>
+									<input
+										type="text"
+										id="father-name"
+										name="father-name"
+										placeholder="Nome do pai"
+									/>
+								</div>
+
+								<div class="input-group">
+									<label for="mother-name" class="sr-only">Nome da mãe</label>
+									<input
+										type="text"
+										id="mother-name"
+										name="mother-name"
+										placeholder="Nome da mãe"
+									/>
+								</div>
+							</section>
+
+						</fieldset>
+
+						<fieldset>
+							<legend>Trabalho</legend>
+
+							<section>
+								<div class="input-group">
+									<label for="work" class="sr-only">Profissão</label>
+									<input
+										type="text"
+										id="work"
+										name="work"
+										placeholder="Profissão"
+									/>
+								</div>
+
+								<div class="input-group">
+									<label for="workplace" class="sr-only">Local de trabalho</label>
+									<input
+										type="text"
+										id="workplace"
+										name="workplace"
+										placeholder="Local de trabalho"
+									/>
+								</div>
+							</section>
+
+						</fieldset>
+
+						<fieldset>
+							<legend>Moradia</legend>
+
+							<div class="input-group">
+								<label for="home" class="sr-only">Residência</label>
+								<input
+									type="text"
+									id="home"
+									name="home"
+									placeholder="Residência"
+								/>
+							</div>
+
+							<section>
+
+								<div class="input-group">
+									<label for="district" class="sr-only">Distrito</label>
+									<input
+										type="text"
+										id="district"
+										name="district"
+										placeholder="Distrito"
+									/>
+								</div>
+
+								<div class="input-group">
+									<label for="neighborhood" class="sr-only">Bairro</label>
+									<input
+										type="text"
+										id="neighborhood"
+										name="neighborhood"
+										placeholder="Bairro"
+									/>
+								</div>
+
+								<div class="input-group">
+									<label for="avenue" class="sr-only">Avenida/Rua</label>
+									<input
+										type="text"
+										id="avenue"
+										name="avenue"
+										placeholder="Avenida/Rua"
+									/>
+								</div>
+
+							</section>
+
+						</fieldset>
+
+						<fieldset>
+							<legend>Pessoa de referencia</legend>
+
+
+
+							<section>
+
+								<div class="input-group">
+									<label for="referencePerson" class="sr-only">Nome</label>
+									<input
+										type="text"
+										id="referencePerson"
+										name="referencePerson"
+										placeholder="Nome"
+									/>
+								</div>
+
+								<div class="input-group">
+									<label for="referenceRelation" class="sr-only">Relação</label>
+									<input
+										type="text"
+										id="referenceRelation"
+										name="referenceRelation"
+										placeholder="Relação"
+									/>
+								</div>
+
+							</section>
+
+							<section>
+
+
+
+								<div class="input-group">
+									<label for="referencePhone" class="sr-only">Numero de telefone</label>
+									<input
+										type="text"
+										id="referencePhone"
+										name="referencePhone"
+										placeholder="Numero de telefone"
+									/>
+								</div>
+
+								<div class="input-group">
+									<label for="referencePlace" class="sr-only">Moradia</label>
+									<input
+										type="text"
+										id="referencePlace"
+										name="referencePlace"
+										placeholder="Moradia"
+									/>
+								</div>
+
+							</section>
+
+
+						</fieldset>
+
+            <div class="input-group actions">
+              <button type="button" class="cancel" onclick="Modal.close()">
+                Cancelar
+              </button>
+              <button type="submit">Salvar</button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+
 		<%- include('../../partials/footer') %>
+
+		<script src="/views/pages/mothers/script.js"></script>
 	</body>
 </html>
