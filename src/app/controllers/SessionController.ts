@@ -24,6 +24,11 @@ class SessionController {
 		}
 
 		const { id, name } = user;
+
+		const exp = new Date();
+
+		exp.setDate(exp.getDate() + 6);
+
 		return response.status(201).json({
 			user: {
 				id,
@@ -32,7 +37,8 @@ class SessionController {
 			},
 			token: jwt.sign({ id }, authConfig.secret, {
 				expiresIn: authConfig.expiresIn
-			})
+			}),
+			exp
 		});
 	}
 }

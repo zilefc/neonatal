@@ -1,6 +1,10 @@
 const Storage = {
 	setUserData(data) {
 		localStorage.setItem('neonatal:user', JSON.stringify(data));
+	},
+	getUserData() {
+		const user = JSON.parse(localStorage.getItem('neonatal:user'));
+		return user;
 	}
 };
 
@@ -61,3 +65,19 @@ const Request = {
 		);
 	}
 };
+
+const App = {
+	init() {
+		const { user = {}, exp = '' } = Storage.getUserData();
+
+		if (user && exp) {
+			const parsedExp = new Date(exp);
+
+			if (parsedExp > new Date()) {
+				location.assign('http://localhost:3333/');
+			}
+		}
+	}
+};
+
+App.init();
