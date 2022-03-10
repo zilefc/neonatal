@@ -14,6 +14,12 @@
 	<body>
 		<%- include('../../partials/header') %>
 
+		<%-
+		include('../../partials/thumbnail',
+		{ level2: { link: '/mothers', text: ' > Lista de Mães' },
+			level3: { link: '', text: '' } })
+		%>
+
 		<main>
 			<header>
 				<h1>Mães cadastradas</h1>

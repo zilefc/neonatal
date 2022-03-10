@@ -9,6 +9,16 @@
 	<body>
 		<%- include('../../partials/header') %>
 
+		<%-
+		include('../../partials/thumbnail',
+		{ level2: {
+			link: '/mothers', text: ' > Lista de Mães'
+		},
+			level3: {
+				link: `/mothers/${mother.id}`, text: ' > Detalhes da mãe'
+			} })
+		%>
+
 		<main>
 			<header>
 				<h1>Detalhes de Mãe</h1>

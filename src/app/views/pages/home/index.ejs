@@ -9,7 +9,9 @@
 		<title>R-Neonatal</title>
 	</head>
 	<body>
-		<%- include('../../partials/header') %>
+		<%- include('../../partials/header') %> <%-
+		include('../../partials/thumbnail', { level2: { link: '', text: '' },
+		level3: { link: '', text: '' } }) %>
 
 		<main>
 			<a href="http://localhost:3333/mothers" class="card-mother">

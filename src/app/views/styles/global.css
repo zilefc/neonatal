@@ -22,3 +22,18 @@ body {
 	color: var(--color-text);
 	font-size: 1.6rem;
 }
+
+.thumbnail {
+	margin-top: 3.2rem;
+	text-align: center;
+}
+
+.thumbnail a {
+	color: var(--color-text);
+	text-decoration: none;
+	transition: all 0.2s;
+}
+
+.thumbnail a:hover {
+	color: var(--color-text-title);
+}
