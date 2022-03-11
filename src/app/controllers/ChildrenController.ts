@@ -42,16 +42,22 @@ class ChildrenController {
 		return response.status(201).send();
 	}
 
-	async list(request: Request, response: Response): Promise<Response> {
+	async list(request: Request, response: Response): Promise<void> {
 		const children = await this.childrenRepository.findAll();
-		return response.json(children);
+		return response.render('pages/children', {
+			title: 'Filhos',
+			children
+		});
 	}
 
-	async showById(request: Request, response: Response): Promise<Response> {
+	async showById(request: Request, response: Response): Promise<void> {
 		const { id } = request.params;
 
 		const child = await this.childrenRepository.findById(Number(id));
-		return response.json(child);
+		return response.render('pages/child-details', {
+			title: 'Detalhes do filho',
+			child
+		});
 	}
 }
 

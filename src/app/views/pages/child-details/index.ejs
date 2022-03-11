@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<%- include('../../partials/head') %>
+		<link rel="stylesheet" href="/views/styles/header.css" />
+		<link rel="stylesheet" href="/views/styles/footer.css" />
+		<link rel="stylesheet" href="/views/pages/child-details/style.css" />
+	</head>
+	<body>
+		<%- include('../../partials/header') %>
+		<%- include('../../partials/thumbnail',
+		{ level2: {
+				link: '/children',
+				text: ' > Lista de Filhos'
+			}, level3: {
+				link: `/children/${child.id}`,
+				text: ' > Detalhes do filho'
+			} }) %>
+
+		<main>
+			<header>
+				<h1>Detalhes do filho</h1>
+			</header>
+
+			<div class="details-container">
+				<section class="child-details">
+					<div class="child-name card-detail">
+						<h3>Nome</h3>
+						<span> <%= child.name %> </span>
+					</div>
+
+					<div class="child-sex card-detail">
+						<h3>Sexo</h3>
+						<span> <%= child.sex %> </span>
+					</div>
+
+					<div class="child-father card-detail">
+						<h3>Nome do pai</h3>
+						<span> <%= child.fatherName %> </span>
+					</div>
+
+					<div class="child-mother card-detail">
+						<h3>Nome da mãe</h3>
+						<a
+						href="<%= `http://localhost:3333/mothers/${child.mother.id}` %> "
+						>
+							<%= child.mother.name %>
+						</a>
+					</div>
+
+				</section>
+
+				<section class="child-aditional-info">
+
+					<div class="child-hospitalName card-detail">
+						<h3>Hospital de nascimento</h3>
+						<span> <%= child.hospitalName %> </span>
+					</div>
+
+					<div class="child-hospitalNumber card-detail">
+						<h3>Número do hospital</h3>
+						<span> <%= child.hospitalNumber %> </span>
+					</div>
+
+					<div class="child-home card-detail">
+						<h3>Residência</h3>
+						<span> <%= child.home %> </span>
+					</div>
+
+					<div class="child-phone card-detail">
+						<h3>Telefone de contacto</h3>
+						<span> <%= child.phone %> </span>
+					</div>
+
+				</section>
+			</div>
+		</main>
+
+		<%- include('../../partials/footer') %>
+	</body>
+</html>

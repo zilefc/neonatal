@@ -1,4 +1,4 @@
-const Storage = {
+const GlobalStorage = {
 	getUserData() {
 		const user = JSON.parse(localStorage.getItem('neonatal:user'));
 		return user;
@@ -10,17 +10,17 @@ const Storage = {
 
 const App = {
 	init() {
-		const { user = {}, exp = '' } = Storage.getUserData();
+		const { user = {}, exp = '' } = GlobalStorage.getUserData();
 
 		if (user && exp) {
 			const parsedExp = new Date(exp);
 
 			if (parsedExp < new Date()) {
-				Storage.clearUserData();
+				GlobalStorage.clearUserData();
 				location.assign('http://localhost:3333/sessions');
 			}
 		} else {
-			Storage.clearUserData();
+			GlobalStorage.clearUserData();
 			location.assign('http://localhost:3333/sessions');
 		}
 	}

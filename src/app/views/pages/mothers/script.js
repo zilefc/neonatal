@@ -1,4 +1,4 @@
-const Storage = {
+const MotherStorage = {
 	setUserData(data) {
 		localStorage.setItem('neonatal:user', JSON.stringify(data));
 	},
@@ -8,9 +8,9 @@ const Storage = {
 	}
 };
 
-const App = {
+const MotherApp = {
 	init() {
-		const userData = Storage.getUserData();
+		const userData = MotherStorage.getUserData();
 		if (!userData) {
 			location.assign('http://localhost:3333/sessions');
 		}
@@ -93,7 +93,7 @@ const Form = {
 
 		try {
 			const data = Form.getValues();
-			const { token } = Storage.getUserData();
+			const { token } = MotherStorage.getUserData();
 			console.log(JSON.stringify(data));
 
 			Request.postData(data, '/mothers', token)
@@ -118,7 +118,7 @@ const Request = {
 		const url = `http://localhost:3333${route}`;
 		const params = {
 			headers: {
-				'Content-Type': 'application/json',
+				'Content-Type': 'Motherapplication/json',
 				Authorization: `Bearer ${token}`
 			},
 			body: JSON.stringify(data),
@@ -130,4 +130,4 @@ const Request = {
 	}
 };
 
-App.init();
+MotherApp.init();

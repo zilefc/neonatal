@@ -49,12 +49,12 @@ class ChildrenRepository {
 	}
 
 	async findAll(): Promise<Children[]> {
-		const children = await this.repository.find();
+		const children = await this.repository.find({ relations: ['mother'] });
 		return children;
 	}
 
 	async findById(id: number): Promise<Children> {
-		const child = await this.repository.findOne(id);
+		const child = await this.repository.findOne(id, { relations: ['mother'] });
 		return child;
 	}
 }

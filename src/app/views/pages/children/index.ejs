@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<%- include('../../partials/head') %>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="/views/pages/children/style.css"
+		/>
+		<link rel="stylesheet" href="/views/styles/header.css" />
+		<link rel="stylesheet" href="/views/styles/footer.css" />
+	</head>
+	<body>
+
+		<%- include('../../partials/header') %>
+
+		<%-
+		include('../../partials/thumbnail',
+		{ level2: { link: '/children/#', text: ' > Lista de Filhos' },
+			level3: { link: '', text: '' } })
+		%>
+
+		<main>
+			<header>
+				<h1>Filhos cadastrados</h1>
+
+				<a class="link" href="#" onclick="Modal.open()"> Cadastrar nova </a>
+			</header>
+
+			<ul>
+				<% children.forEach(child => { %>
+				<li>
+					<a href= <%= `http://localhost:3333/children/${child.id}` %> >
+						<div class="child-name">
+							<strong> <%= child.name %> </strong>
+							<small> <%= child.mother.name %> </small>
+						</div>
+						<p><%= `${child.home} • ${child.phone}` %></p>
+					</a>
+				</li>
+				<% }); %>
+			</ul>
+		</main>
+
+		<%- include('../../partials/footer') %>
+
+	</body>
+</html>
