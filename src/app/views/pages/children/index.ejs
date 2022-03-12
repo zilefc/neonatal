@@ -24,7 +24,7 @@
 			<header>
 				<h1>Filhos cadastrados</h1>
 
-				<a class="link" href="#" onclick="Modal.open()"> Cadastrar nova </a>
+				<a class="link" href="#" onclick="Modal.open()"> Cadastrar novo </a>
 			</header>
 
 			<ul>
@@ -42,7 +42,137 @@
 			</ul>
 		</main>
 
+
+
 		<%- include('../../partials/footer') %>
+
+		<div class="modal-overlay active">
+      <div class="modal">
+        <section id="form">
+          <h2>Nova criança</h2>
+          <form action="" onsubmit="Form.submit(event)">
+
+						<fieldset>
+							<legend>Informação básica</legend>
+
+							<div class="input-group">
+								<label for="name" class="sr-only">Nome</label>
+								<input
+									type="text"
+									id="name"
+									name="name"
+									placeholder="Nome completo"
+								/>
+							</div>
+
+							<div class="input-group">
+								<label for="sex" class="">Sexo</label>
+								<select name="sex" id="sex">
+									<option value="Masculino">Masculino</option>
+									<option value="Feminino">Feminino</option>
+								</select>
+							</div>
+
+						</fieldset>
+
+						<fieldset>
+							<legend>Filiação</legend>
+
+							<section>
+								<div class="input-group">
+									<label for="father-name" class="sr-only">Nome do pai</label>
+									<input
+										type="text"
+										id="father-name"
+										name="father-name"
+										placeholder="Nome do pai"
+									/>
+								</div>
+
+								<div class="input-group">
+									<label for="mother" class="sr-only">Nome da mãe</label>
+									<input
+										type="text"
+										id="mother"
+										name="mother"
+										placeholder="Nome da mãe"
+										list="mothers-list"
+									/>
+									<datalist id="mothers-list">
+										<option value="Joana">Joa</option>
+										<option value="Joana">Jo</option>
+										<option value="Joana">Ja</option>
+									</datalist>
+								</div>
+							</section>
+
+						</fieldset>
+
+						<fieldset>
+							<legend>Hospital de nascimento</legend>
+
+							<section>
+								<div class="input-group">
+									<label for="hospitalName" class="sr-only">Nome do hospital</label>
+									<input
+										type="text"
+										id="hospitalName"
+										name="hospitalName"
+										placeholder="Nome do hospital"
+									/>
+								</div>
+
+								<div class="input-group">
+									<label for="hospitalNumber" class="sr-only">Numero do hospital</label>
+									<input
+										type="text"
+										id="hospitalNumber"
+										name="hospitalNumber"
+										placeholder="Numero do hospital"
+									/>
+								</div>
+							</section>
+
+						</fieldset>
+
+						<fieldset>
+							<legend>Moradia</legend>
+
+							<div class="input-group">
+								<label for="home" class="sr-only">Residência</label>
+								<input
+									type="text"
+									id="home"
+									name="home"
+									placeholder="Residência"
+								/>
+							</div>
+
+							<div class="input-group">
+								<label for="phone" class="sr-only">Numero de telefone</label>
+								<input
+									type="text"
+									id="phone"
+									name="phone"
+									placeholder="Numero de telefone"
+								/>
+							</div>
+
+						</fieldset>
+
+
+            <div class="input-group actions">
+              <button type="button" class="cancel" onclick="Modal.close()">
+                Cancelar
+              </button>
+              <button type="submit">Salvar</button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+
+		<script src="/views/pages/children/script.js"></script>
 
 	</body>
 </html>

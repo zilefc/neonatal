@@ -1,4 +1,4 @@
-import { getRepository, Repository } from 'typeorm';
+import { getRepository, Like, Repository } from 'typeorm';
 import { Children } from '../models/Children';
 import { Mother } from '../models/Mother';
 import User from '../models/User';
@@ -91,6 +91,13 @@ class MothersRepository {
 
 	async findAll(): Promise<Mother[]> {
 		const mothers = await this.repository.find();
+		return mothers;
+	}
+
+	async findByName(name: string): Promise<Mother[]> {
+		const mothers = await this.repository.find({
+			name: Like(`%${name}%`)
+		});
 		return mothers;
 	}
 
