@@ -7,7 +7,7 @@
 [] Mostrar todos filhos na pagina da mae
 [x] Mostrar todos filhos na pagina propria
 [x] Pagina com um filho
-[] Form para registar filho na pagina da mae
+[x] Form para registar filho na pagina da mae
 [] Form para registar filho na sua pagina
 [] NUmero de filhos e maes na home
 [] Tratar erros

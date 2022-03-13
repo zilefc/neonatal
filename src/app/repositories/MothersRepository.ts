@@ -85,7 +85,9 @@ class MothersRepository {
 	}
 
 	async findById(id: number): Promise<Mother> {
-		const mother = await this.repository.findOne(id);
+		const mother = await this.repository.findOne(id, {
+			relations: ['children']
+		});
 		return mother;
 	}
 

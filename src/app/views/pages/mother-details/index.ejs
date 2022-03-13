@@ -19,7 +19,7 @@
 				<a href="#" class="link" onclick="Modal.open()">Cadastrar filho</a>
 			</header>
 
-			<div class="details-container">
+			<section class="details-container">
 				<section class="mother-details">
 					<div class="mother-name card-detail">
 						<h3>Nome</h3>
@@ -93,8 +93,26 @@
 						<span> <%= mother.referencePhone %> </span>
 					</div>
 				</section>
-			</div>
+			</section>
 		</main>
+
+		<aside>
+			<h2>Filhos</h2>
+
+			<ul>
+				<% mother.children.forEach(child => { %>
+				<li>
+					<a href= <%= `http://localhost:3333/children/${child.id}` %> >
+						<div class="child-name">
+							<strong> <%= child.name %> </strong>
+							<small> <%= child.home %> </small>
+						</div>
+						<p><%= `${child.hospitalName} • ${child.hospitalNumber}` %></p>
+					</a>
+				</li>
+				<% }); %>
+			</ul>
+		</aside>
 
 		<div class="modal-overlay">
 			<div class="modal">
