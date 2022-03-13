@@ -57,6 +57,12 @@ class ChildrenRepository {
 		const child = await this.repository.findOne(id, { relations: ['mother'] });
 		return child;
 	}
+
+	async count(): Promise<number> {
+		const count = await this.repository.count();
+
+		return count;
+	}
 }
 
 export { ChildrenRepository };

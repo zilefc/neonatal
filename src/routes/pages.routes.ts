@@ -1,9 +1,10 @@
 import { Router } from 'express';
+import motherChildrenController from '../app/controllers/MotherChildrenController';
 
 const routes = Router();
 
 routes.get('/', (request, response) => {
-	return response.render('pages/home', { title: 'Home' });
+	motherChildrenController().count(request, response);
 });
 
 export { routes as pageRoutes };

@@ -4,11 +4,11 @@
 [x] Enviar o form
 [x] Configurar navegacao
 [x] Acertar autenticacao
-[] Mostrar todos filhos na pagina da mae
+[x] Mostrar todos filhos na pagina da mae
 [x] Mostrar todos filhos na pagina propria
 [x] Pagina com um filho
 [x] Form para registar filho na pagina da mae
-[] Form para registar filho na sua pagina
-[] NUmero de filhos e maes na home
+[-] Form para registar filho na sua pagina
+[x] NUmero de filhos e maes na home
 [] Tratar erros
 [] Fazer um readme

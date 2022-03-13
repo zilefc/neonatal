@@ -111,6 +111,12 @@ class MothersRepository {
 		const { children } = mother;
 		return children;
 	}
+
+	async count(): Promise<number> {
+		const count = await this.repository.count();
+
+		return count;
+	}
 }
 
 export { MothersRepository };
