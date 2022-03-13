@@ -10,3 +10,5 @@
 [] Form para registar filho na pagina da mae
 [] Form para registar filho na sua pagina
 [] NUmero de filhos e maes na home
+[] Tratar erros
+[] Fazer um readme

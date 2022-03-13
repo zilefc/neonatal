@@ -16,8 +16,8 @@
 
 		<%-
 		include('../../partials/thumbnail',
-		{ level2: { link: '/children/#', text: ' > Lista de Filhos' },
-			level3: { link: '', text: '' } })
+		{ level2: ['/children/#',  ' > Lista de Filhos'],
+			level3: ['',  ''] })
 		%>
 
 		<main>
@@ -46,7 +46,7 @@
 
 		<%- include('../../partials/footer') %>
 
-		<div class="modal-overlay active">
+		<div class="modal-overlay">
       <div class="modal">
         <section id="form">
           <h2>Nova criança</h2>
@@ -97,6 +97,7 @@
 										name="mother"
 										placeholder="Nome da mãe"
 										list="mothers-list"
+										onchange="Form.setMothersList(value)"
 									/>
 									<datalist id="mothers-list">
 										<option value="Joana">Joa</option>

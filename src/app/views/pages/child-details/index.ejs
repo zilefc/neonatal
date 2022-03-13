@@ -7,15 +7,9 @@
 		<link rel="stylesheet" href="/views/pages/child-details/style.css" />
 	</head>
 	<body>
-		<%- include('../../partials/header') %>
-		<%- include('../../partials/thumbnail',
-		{ level2: {
-				link: '/children',
-				text: ' > Lista de Filhos'
-			}, level3: {
-				link: `/children/${child.id}`,
-				text: ' > Detalhes do filho'
-			} }) %>
+		<%- include('../../partials/header') %> <%-
+		include('../../partials/thumbnail', { level2: ['/children', ` > Lista de
+		Filhos`] , level3: [`/children/${child.id}`, ` > Detalhes do filho`] } ) %>
 
 		<main>
 			<header>
@@ -42,16 +36,14 @@
 					<div class="child-mother card-detail">
 						<h3>Nome da mãe</h3>
 						<a
-						href="<%= `http://localhost:3333/mothers/${child.mother.id}` %> "
+							href="<%= `http://localhost:3333/mothers/${child.mother.id}` %> "
 						>
 							<%= child.mother.name %>
 						</a>
 					</div>
-
 				</section>
 
 				<section class="child-aditional-info">
-
 					<div class="child-hospitalName card-detail">
 						<h3>Hospital de nascimento</h3>
 						<span> <%= child.hospitalName %> </span>
@@ -71,7 +63,6 @@
 						<h3>Telefone de contacto</h3>
 						<span> <%= child.phone %> </span>
 					</div>
-
 				</section>
 			</div>
 		</main>

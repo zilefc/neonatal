@@ -4,15 +4,19 @@
 		<%- include('../../partials/head') %>
 		<link rel="stylesheet" href="/views/styles/header.css" />
 		<link rel="stylesheet" href="/views/styles/footer.css" />
+		<link rel="stylesheet" href="/views/styles/link.css" />
 		<link rel="stylesheet" href="/views/pages/mother-details/style.css" />
 	</head>
-	<body>
-		<%- include('../../partials/header') %> <%-
-		include('../../partials/thumbnail', { level2: { link: '/mothers', text: ' >		Lista de Mães' }, level3: { link: `/mothers/${mother.id}`, text: ' >		Detalhes da mãe' } }) %>
+		<body onload=<%= "ChildrenApp.setMotherId(" + mother.id + ")" %> >
+		<%-
+		include('../../partials/header') %> <%- include( '../../partials/thumbnail',
+		{ level2: ['/mothers', ' > Lista de Mães'], level3: [`/mothers/${mother.id}
+		`, ' > Detalhes da mãe'] }) %>
 
 		<main>
 			<header>
 				<h1>Detalhes de Mãe</h1>
+				<a href="#" class="link" onclick="Modal.open()">Cadastrar filho</a>
 			</header>
 
 			<div class="details-container">
@@ -92,6 +96,113 @@
 			</div>
 		</main>
 
+		<div class="modal-overlay">
+			<div class="modal">
+				<section id="form">
+					<h2>Nova criança</h2>
+					<form action="" onsubmit="Form.submit(event)">
+						<fieldset>
+							<legend>Informação básica</legend>
+
+							<div class="input-group">
+								<label for="name" class="sr-only">Nome</label>
+								<input
+									type="text"
+									id="name"
+									name="name"
+									placeholder="Nome completo"
+								/>
+							</div>
+
+							<div class="input-group">
+								<label for="sex" class="">Sexo</label>
+								<select name="sex" id="sex">
+									<option value="Masculino">Masculino</option>
+									<option value="Feminino">Feminino</option>
+								</select>
+							</div>
+						</fieldset>
+
+						<fieldset>
+							<legend>Filiação</legend>
+							<div class="input-group">
+								<label for="father-name" class="sr-only">Nome do pai</label>
+								<input
+									type="text"
+									id="father-name"
+									name="father-name"
+									placeholder="Nome do pai"
+								/>
+							</div>
+						</fieldset>
+
+						<fieldset>
+							<legend>Hospital de nascimento</legend>
+
+							<section>
+								<div class="input-group">
+									<label for="hospitalName" class="sr-only"
+										>Nome do hospital</label
+									>
+									<input
+										type="text"
+										id="hospitalName"
+										name="hospitalName"
+										placeholder="Nome do hospital"
+									/>
+								</div>
+
+								<div class="input-group">
+									<label for="hospitalNumber" class="sr-only"
+										>Numero do hospital</label
+									>
+									<input
+										type="text"
+										id="hospitalNumber"
+										name="hospitalNumber"
+										placeholder="Numero do hospital"
+									/>
+								</div>
+							</section>
+						</fieldset>
+
+						<fieldset>
+							<legend>Moradia</legend>
+
+							<div class="input-group">
+								<label for="home" class="sr-only">Residência</label>
+								<input
+									type="text"
+									id="home"
+									name="home"
+									placeholder="Residência"
+								/>
+							</div>
+
+							<div class="input-group">
+								<label for="phone" class="sr-only">Numero de telefone</label>
+								<input
+									type="text"
+									id="phone"
+									name="phone"
+									placeholder="Numero de telefone"
+								/>
+							</div>
+						</fieldset>
+
+						<div class="input-group actions">
+							<button type="button" class="cancel" onclick="Modal.close()">
+								Cancelar
+							</button>
+							<button type="submit">Salvar</button>
+						</div>
+					</form>
+				</section>
+			</div>
+		</div>
+
 		<%- include('../../partials/footer') %>
+
+		<script src="/views/pages/mother-details/script.js"></script>
 	</body>
 </html>
