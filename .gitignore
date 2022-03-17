@@ -1,3 +1,5 @@
 /node_modules
 /sample
-./requisitos.md
+requisitos.md
+Tasks.md
+.env
