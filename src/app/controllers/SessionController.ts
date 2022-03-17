@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { UsersRepository } from '../repositories/UsersRepository';
 import authConfig from '../../config/auth';
+import { AppError } from '../errors/AppError';
 
 class SessionController {
 	private repository: UsersRepository;
@@ -16,11 +17,11 @@ class SessionController {
 		const user = await this.repository.findByEmail(email);
 
 		if (!user) {
-			throw new Error('User not found');
+			throw new AppError('User not found');
 		}
 
 		if (!(await bcrypt.compare(password, user.password))) {
-			throw new Error('Password does not match!');
+			throw new AppError('Password does not match!', 401);
 		}
 
 		const { id, name } = user;

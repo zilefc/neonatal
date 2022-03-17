@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { AppError } from '../errors/AppError';
 import { MothersRepository } from '../repositories/MothersRepository';
 
 class MotherController {
@@ -35,12 +36,12 @@ class MotherController {
 
 		const age = today.getFullYear() - parsedBirthday.getFullYear();
 		if (age < 14) {
-			throw new Error('Invalid birthday');
+			throw new AppError('Invalid birthday');
 		}
 
 		const motherExists = await this.mothersRepository.findByBi(bi);
 		if (motherExists) {
-			throw new Error('Mother already exists!');
+			throw new AppError('Mother already exists!');
 		}
 
 		await this.mothersRepository.create({

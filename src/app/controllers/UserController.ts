@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { AppError } from '../errors/AppError';
 import { UsersRepository } from '../repositories/UsersRepository';
 
 class UserController {
@@ -13,7 +14,7 @@ class UserController {
 
 		const userAlreadyExists = await this.usersRepository.findByEmail(email);
 		if (userAlreadyExists) {
-			throw new Error('User already exists');
+			throw new AppError('User already exists');
 		}
 
 		await this.usersRepository.create({ name, email, password });
